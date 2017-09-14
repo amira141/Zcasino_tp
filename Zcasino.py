@@ -36,7 +36,7 @@ while i==1:
 #---Gains
         
         if numero_gagnant == numero : 
-            gains = ceil(mise + (3*M))
+            gains = ceil(mise + (3*mise))
             print("Bravo, vous avez gagne:",gains,"$.")
             print(QUITTER())
             
@@ -48,7 +48,7 @@ while i==1:
            
             
         else :
-            gains = ceil(mise-mise)
+            gains = ceil(0)
             print("Malhereusement, vous avez perdu votre mise de",mise,"$.")
             print("A present il vous reste:",gains,"$.")
             print(QUITTER())
