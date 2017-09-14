@@ -8,9 +8,7 @@ from math import ceil
 #******Zcasino******
 
 def QUITTER() :
-    QU = input("Voulez-vous recommencer une partie ? Si oui, tapez sur entrée, si non tapez sur Q.")
-    if QU == "Q" :
-        print("A bientôt.")
+    QU = input("Voulez-vous recommencer une partie ? Si oui, tapez sur entree, si non tapez CTRL+C.")
 
 
 #---Le joueur
@@ -41,20 +39,20 @@ while i==1:
             gains = ceil(mise + (3*M))
             print("Bravo, vous avez gagne:",gains,"$.")
             print(QUITTER())
-            break
+            
 
         elif (numero_gagnant%2 == 0 and numero%2 == 0) or (numero_gagnant%2 != 0 and numero%2 !=0): 
             gains = ceil(mise + (1/2)*mise)
             print("Bravo, vous avez gagne:",gains,"$.")
             print(QUITTER())
-            break
+           
             
         else :
             gains = ceil(mise-mise)
             print("Malhereusement, vous avez perdu votre mise de",mise,"$.")
             print("A present il vous reste:",gains,"$.")
             print(QUITTER())
-            break
+            
             
 
     else:
