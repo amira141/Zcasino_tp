@@ -33,21 +33,8 @@ if numero_gagnant == numero :
 #elif numero_gagnant/numero (comparer les parités)
 else :
 	gains = mise-mise
-	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	print("Malhereusement, vous avez perdu votre mise de",mise,"$.")
+	print("A present il vous reste:",gains,"$.")
 
 
 
