@@ -2,6 +2,7 @@
 
 import os 
 from random import randrange
+from math import ceil
 
 
 #******Zcasino******
@@ -20,7 +21,7 @@ while i==1:
         
         #MISE TOUJOURS POSITIVE (to do)
         mise_u = input("Quelle est votre mise ?") #choix de la mise 
-        mise = int(mise_u)
+        mise = float(mise_u)
         
 
 #---Affichage d'un numéro entre 0 et 49 
@@ -32,21 +33,21 @@ while i==1:
 #---Gains
         
         if numero_gagnant == numero : 
-            gains = mise + (3*M)
+            gains = ceil(mise + (3*M))
             print("Bravo, vous avez gagne:",gains,"$.")
             QU = input("Voulez vous recommencer une partie? Si oui, tapez sur entrée, si non tapez sur Q.")
             if QU == "Q" :
                 break
 
         elif (numero_gagnant%2 == 0 and numero%2 == 0) or (numero_gagnant%2 != 0 and numero%2 !=0): 
-            gains = mise + (1/2)*mise
+            gains = ceil(mise + (1/2)*mise)
             print("Bravo, vous avez gagne:",gains,"$.")
             QU = input("Voulez vous recommencer une partie? Si oui, tapez sur entrée, si non tapez sur Q.")
             if QU == "Q" :
                 break
             
         else :
-            gains = mise-mise
+            gains = ceil(mise-mise)
             print("Malhereusement, vous avez perdu votre mise de",mise,"$.")
             print("A present il vous reste:",gains,"$.")
             QU = input("Voulez-vous recommencer une partie dès le début? Si oui, tapez sur entrée, si non tapez sur Q.")
@@ -58,3 +59,4 @@ while i==1:
         
 
 os.system("pause")
+
