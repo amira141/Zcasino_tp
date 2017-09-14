@@ -1,3 +1,9 @@
+#-*-coding:Latin-1 -*
+
+import os 
+from random import randrange
+
+
 #******Zcasino******
 
 
@@ -24,22 +30,26 @@ while i==1:
 
 
 #---Gains
-
+        
         if numero_gagnant == numero : 
             gains = mise + (3*M)
             print("Bravo, vous avez gagne:",gains,"$.")
-            QU = input("Voulez vous recommencer une partie? Si oui, tapez sur entrée, si non tapez sur Q.") #choix du mode de sortie
-            QU = Q
+            QU = input("Voulez vous recommencer une partie? Si oui, tapez sur entrée, si non tapez sur Q.")
             if QU == "Q" :
                 break
 
-        #elif COMPARER LES PARITES (to do)
+        elif (numero_gagnant%2 == 0 and numero%2 == 0) or (numero_gagnant%2 != 0 and numero%2 !=0): 
+            gains = mise + (1/2)*mise
+            print("Bravo, vous avez gagne:",gains,"$.")
+            QU = input("Voulez vous recommencer une partie? Si oui, tapez sur entrée, si non tapez sur Q.")
+            if QU == "Q" :
+                break
             
         else :
             gains = mise-mise
             print("Malhereusement, vous avez perdu votre mise de",mise,"$.")
             print("A present il vous reste:",gains,"$.")
-            QU = input("Voulez-vous recommencer une partie dès le début? Si oui, tapez sur entrée, si non tapez sur Q.") #choix du mode de sortie
+            QU = input("Voulez-vous recommencer une partie dès le début? Si oui, tapez sur entrée, si non tapez sur Q.")
             if QU == "Q" :
                 break
 
