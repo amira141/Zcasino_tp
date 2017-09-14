@@ -7,6 +7,11 @@ from math import ceil
 
 #******Zcasino******
 
+def QUITTER() :
+    QU = input("Voulez-vous recommencer une partie ? Si oui, tapez sur entrée, si non tapez sur Q.")
+    if QU == "Q" :
+        print("A bientôt.")
+
 
 #---Le joueur
 
@@ -35,28 +40,25 @@ while i==1:
         if numero_gagnant == numero : 
             gains = ceil(mise + (3*M))
             print("Bravo, vous avez gagne:",gains,"$.")
-            QU = input("Voulez vous recommencer une partie? Si oui, tapez sur entrée, si non tapez sur Q.")
-            if QU == "Q" :
-                break
+            print(QUITTER())
+            break
 
         elif (numero_gagnant%2 == 0 and numero%2 == 0) or (numero_gagnant%2 != 0 and numero%2 !=0): 
             gains = ceil(mise + (1/2)*mise)
             print("Bravo, vous avez gagne:",gains,"$.")
-            QU = input("Voulez vous recommencer une partie? Si oui, tapez sur entrée, si non tapez sur Q.")
-            if QU == "Q" :
-                break
+            print(QUITTER())
+            break
             
         else :
             gains = ceil(mise-mise)
             print("Malhereusement, vous avez perdu votre mise de",mise,"$.")
             print("A present il vous reste:",gains,"$.")
-            QU = input("Voulez-vous recommencer une partie dès le début? Si oui, tapez sur entrée, si non tapez sur Q.")
-            if QU == "Q" :
-                break
+            print(QUITTER())
+            break
+            
 
     else:
         print("Le numéro que vous avez saisi est incorrect.")
         
 
 os.system("pause")
-
