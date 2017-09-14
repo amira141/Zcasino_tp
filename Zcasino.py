@@ -36,13 +36,13 @@ while i==1:
 #---Gains
         
         if numero_gagnant == numero : 
-            gains = ceil(mise + (3*mise))
+            gains = ceil(3*mise)
             print("Bravo, vous avez gagne:",gains,"$.")
             print(QUITTER())
             
 
         elif (numero_gagnant%2 == 0 and numero%2 == 0) or (numero_gagnant%2 != 0 and numero%2 !=0): 
-            gains = ceil(mise + (1/2)*mise)
+            gains = ceil((1/2)*mise)
             print("Bravo, vous avez gagne:",gains,"$.")
             print(QUITTER())
            
@@ -56,7 +56,7 @@ while i==1:
             
 
     else:
-        print("Le numéro que vous avez saisi est incorrect.")
+        print("Le numero que vous avez saisi est incorrect.")
         
 
 os.system("pause")
