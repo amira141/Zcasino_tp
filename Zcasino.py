@@ -7,9 +7,6 @@ from math import ceil
 
 #******Zcasino******
 
-def QUITTER() :
-    QU = input("Voulez-vous recommencer une partie ? Si oui, tapez sur entrée, si non tapez CTRL+C.")
-
 
 #-Portefeuille
 argent = input("Combien voulez-vous miser pour cette partie?")#l'utilisateur mise le montant qu'il souhaite pour la partie 
@@ -74,23 +71,30 @@ while continuer_partie :
     if numero_gagnant == numero : 
         gains = ceil(3*mise)
         print("Bravo, vous avez gagne:",gains,"$.")
-        argent += gains
-        print("A présent vous avez:",argent,"$.")    
+        argent += gains    
 
     elif (numero_gagnant%2 == 0 and numero%2 == 0) or (numero_gagnant%2 != 0 and numero%2 !=0): 
         gains = ceil((1/2)*mise)
         print("Bravo, vous avez gagne:",gains,"$.")
         argent += gains
-        print("A présent vous avez:",argent,"$.")
            
             
     else :
         print("Malhereusement, vous avez perdu votre mise de",mise,"$.")
         argent -= mise
-        print("A present il vous reste:",argent,"$.")
-
+        
+    print("Votre portefeuille est de :",argent,".") 
         
 #--Fin de partie
-
+    if argent <=0 :
+        print("Vous n'avez plus d'argent. La partie est finie. Au revoir")
+        continuer_partie = False
+    else:
+        QU = input("Souhaitez-vous quitter le casino? Si oui tapez Q. Sinon tapez sur une touche du clavier. "" ")
+        QU = QU.upper()
+        if QU == "Q":
+            print("Merci. Vous quittez le casino avec",argent,"$. Au revoir")
+            continuer_partie = False
+    
         
 os.system("pause")
