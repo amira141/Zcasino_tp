@@ -21,12 +21,15 @@ print("Vous vous installez à la table de la roulette avec",  argent, "$.")
 
 #---Le joueur
 
+
 while continuer_partie :
+
+	#numéro misé uniquement compris entre 0 et 49
     numero = -1
     while numero<0 or  numero>=49 : 
         numero = input("Choisissez un numero compris entre 0 et 49 sur lequel vous souhaitez miser.") #choix du numéro sur lequel miser
-
-        #Nombre misé uniquement compris entre 0 et 49 
+        print("Le numéro sur lequel vous misez est le numéro:",numero,".")
+        
         try:
             numero = int(numero)
         except ValueError:
@@ -37,11 +40,14 @@ while continuer_partie :
             print("Ce nombre est négatif")
         if numero >=49 :
             print("Ce nombre est supérieur à 49.")
+
+        
      
-        #mise toujours positive ou possible  
+    #mise toujours positive ou possible  
     mise = 0
     while mise <=0 or mise > argent:
-        mise = input("Quelle est votre mise ?") #choix de la mise 
+        mise = input("Quelle est votre mise ?")
+        print("Votre mise est de:",mise,"$.")
         
 
         try:
@@ -59,30 +65,32 @@ while continuer_partie :
 
 #---Affichage d'un numéro entre 0 et 49 
 
-        #numero_gagnant = randrange(50) #affichage d'un numéro au hasard entre 0 et 49 
-        #print("Le numero de la case sur laquelle la bille s'est arrete est le numero:",numero_gagnant,".")
+    numero_gagnant = randrange(50) #affichage d'un numéro au hasard entre 0 et 49 
+    print("Le numero de la case sur laquelle la bille s'est arrete est le numero:",numero_gagnant,".")
 
 
 #---Gains
         
-        #if numero_gagnant == numero : 
-            #gains = ceil(mise + (3*M))
-            #print("Bravo, vous avez gagne:",gains,"$.")
-            #print(QUITTER())
-            
+    if numero_gagnant == numero : 
+        gains = ceil(3*mise)
+        print("Bravo, vous avez gagne:",gains,"$.")
+        argent += gains
+        print("A présent vous avez:",argent,"$.")    
 
-        #elif (numero_gagnant%2 == 0 and numero%2 == 0) or (numero_gagnant%2 != 0 and numero%2 !=0): 
-            #gains = ceil(mise + (1/2)*mise)
-            #print("Bravo, vous avez gagne:",gains,"$.")
-            #print(QUITTER())
+    elif (numero_gagnant%2 == 0 and numero%2 == 0) or (numero_gagnant%2 != 0 and numero%2 !=0): 
+        gains = ceil((1/2)*mise)
+        print("Bravo, vous avez gagne:",gains,"$.")
+        argent += gains
+        print("A présent vous avez:",argent,"$.")
            
             
-        #else :
-            #gains = ceil(mise-mise)
-            #print("Malhereusement, vous avez perdu votre mise de",mise,"$.")
-            #print("A present il vous reste:",gains,"$.")
-            #print(QUITTER())
-            
-        
+    else :
+        print("Malhereusement, vous avez perdu votre mise de",mise,"$.")
+        argent -= mise
+        print("A present il vous reste:",argent,"$.")
 
+        
+#--Fin de partie
+
+        
 os.system("pause")
